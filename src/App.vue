@@ -2,26 +2,45 @@
  * @Description: 
  * @version: 
  * @Author: dlyan.ding
- * @Date: 2022-01-02 15:55:30
+ * @Date: 2021-11-15 15:45:07
  * @LastEditors: dlyan.ding
- * @LastEditTime: 2022-01-02 16:09:40
+ * @LastEditTime: 2022-01-03 01:42:45
 -->
-<script setup lang="ts">
-
-</script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <router-view v-slot="{ Component }">
+      <component :is="Component" />
+  </router-view>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<script lang="ts">
+import {defineComponent} from 'vue'
+export default defineComponent({
+  components: {
+    // ColumnList,
+  },
+  setup() {
+   
+  },
+});
+</script>
+<style lang="less">
+#app{
+  background:#fbfcfc;
+}
+.slide-left-enter {
+  opacity: 0;
+  -webkit-transform: translate(30px, 0);
+  transform: translate(30px, 0);
+}
+.slide-left-enter-active {
+  transition: all 0.5s ease;
+}
+.slide-left-leave-to {
+  opacity: 0;
+  -webkit-transform: translate(-30px, 0);
+  transform: translate(-30px, 0);
+}
+.slide-left-leave-active {
+  transition: all 0.5s ease;
 }
 </style>
